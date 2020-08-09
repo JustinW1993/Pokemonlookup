@@ -1,0 +1,156 @@
+h1 {
+  text-align: center;
+}
+
+input, label {
+  display:block;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+#search {
+  display: flex;
+  justify-content: center;
+}
+
+body, html{
+  height: 100%;
+  background-image: url('./pokemonBackground.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: fixed;
+}
+
+
+
+.containers {
+  position: relative;
+}
+.photobanner {
+  position: fixed;
+  bottom: 0;
+}
+
+.card  {
+  z-index: 2;
+  margin-top: 5px;
+  margin: auto;
+  width: auto;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.pokemonImage {
+  max-width: 5%;
+  height: auto;
+}
+
+#container {
+  position: relative;
+  margin: auto;
+  width: 50%;
+
+  padding: 10px;
+
+}
+.searchBar {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+.containers {
+  width: 100%;
+  overflow: hidden;
+  margin: 10px auto;
+}
+
+.photobanner, .photobanner2 {
+  height: 233px;
+  width: 3550px;
+  font-size: 0;
+}
+
+.photobanner img, .photobanner2 img {
+  padding-right: 10px;
+  height: 233px;
+  width: 350px;
+  margin-right: 5px;
+}
+
+.photobanner img  {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+/*keyframe animations*/
+.first {
+  max-width: 5%;
+  height: auto;
+  -webkit-animation: bannermove 60s linear infinite;
+     -moz-animation: bannermove 60s linear infinite;
+      -ms-animation: bannermove 60s linear infinite;
+       -o-animation: bannermove 60s linear infinite;
+          animation: bannermove 60s linear infinite;
+}
+
+@keyframes "bannermove" {
+0% {margin-left: 0px;}
+100% {margin-left: -2125px;}
+}
+
+@-moz-keyframes bannermove {
+0% {margin-left: 0px;}
+100% {margin-left: -2125px;}
+}
+
+@-webkit-keyframes "bannermove" {
+0% {margin-left: 0px;}
+100% {margin-left: -2125px;}
+}
+
+@-ms-keyframes "bannermove" {
+0% {margin-left: 0px;}
+100% {margin-left: -2125px;}
+}
+
+@-o-keyframes "bannermove" {
+0% {margin-left: 0px;}
+100% {margin-left: -2125px;}
+}
+
+
+@keyframes "bannermoves" {
+0% {margin-left: -2125px;}
+100% {margin-left: 0px;}
+}
+
+@-moz-keyframes bannermoves {
+0% {margin-left: -2125px;}
+100% {margin-left: 0px;}
+}
+
+@-webkit-keyframes "bannermoves" {
+0% {margin-left: -2125px;}
+100% {margin-left: 0px;}
+}
+
+@-ms-keyframes "bannermoves" {
+0% {margin-left: -2125px;}
+100% {margin-left: 0px;}
+}
+
+@-o-keyframes "bannermoves" {
+0% {margin-left: -2125px;}
+100% {margin-left: 0px;}
+}
