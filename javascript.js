@@ -1,27 +1,7 @@
 let btn = document.getElementById('search');
+let input = document.querySelector('input#pokemon');
+let pokemonSearch = 'https://pokeapi.co/api/v2/pokemon/';
 
-
-// This function Grabs the input and returns the pokemon
-function pokemonSearch(callback) {
-    let input = document.querySelector('input#pokemon');
-    let url = 'https://pokeapi.co/api/v2/pokemon/' + input.value;
-    url = url.toLowerCase()
-    const search = new XMLHttpRequest;
-    search.open('GET', url);
-    search.onreadystatechange = function () {
-        if (search.readyState === 4 && search.status === 200) {
-            let poke = JSON.parse(search.responseText)
-            input.value = '';
-            return callback(poke);
-        } else if (search.readyState === 4 && search.status === 404) {
-            alert(`Pokemon ${input.value} was not found!`)
-
-        } else if (search.readyState === 4 && search.status === 500) {
-            alert(`ERROR 500!`)
-        }
-    }
-    search.send()
-}
 
 // This function makes the HTML
 function pokemonHtml (poke) {
@@ -58,19 +38,12 @@ function pokemonHtml (poke) {
     };
 };
 
-// This function grabs the first 151 pokemon
-function carousel(callback){
-    let carUrl = 'https://pokeapi.co/api/v2/pokemon?limit=151/'
-    const pokemonList = new XMLHttpRequest;
-    let pokeList;
-    pokemonList.open('GET', carUrl); 
-    pokemonList.onreadystatechange = function () {
-        if (pokemonList.readyState === 4 && pokemonList.status === 200) {
-            pokeList = JSON.parse(pokemonList.responseText)
-            return callback(pokeList);
-        };
-    };
-    pokemonList.send();  
+//This function grabs the first 151 pokemon
+function carousel(){
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=151/')
+    .then(res => res.json())
+    .then(json => idSearch(json))
+    
 };
 
 //This function takes the 151 pokemon and turns them into a usable image
@@ -98,7 +71,10 @@ function idSearch(myArr) {
 
 
 btn.addEventListener('click', (event) => {
-    pokemonSearch(pokemonHtml);
+    fetch(pokemonSearch + input.value.toLowerCase())
+    .then(res => res.json())
+    .then(json => pokemonHtml(json))
+    
 });
 
 
